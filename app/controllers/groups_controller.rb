@@ -3,16 +3,21 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
+def show
+  @group = Group.find(params[:id])
+end
+
   def new
     @group = Group.new
   end
 
   def create
-    @groups = Group.new(group_params)
-    @groups = Group.save
+    @group = Group.new(group_params)
+    @group.save
+      redirect_to  groups_path
   end
 
   def group_params
-    garams.require(:group).permit(:title, :description)
-  end 
+    params.require(:group).permit(:title, :description)
+  end
 end
