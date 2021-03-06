@@ -2,10 +2,13 @@
   <div class="btn-group" role="group" aria-label="Basic example">
   </div>
   <div class="group">
+    </div>
+   <%= link_to("Write a Post", new_group_post_path(@group), class: "btn btn-primary float-right")%>
+
     <% if current_user && current_user == @group.user %>
       <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary float-right  ")%>
       <% end %>
-  </div>
+
   <h2><%= @group.title %></h2>
   <p><%= @group.description %></p>
 </div>
