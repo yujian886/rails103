@@ -13,6 +13,7 @@ class PostsController < ApplicationController
      @post.user = current_user
 
      if @post.save
+       current_user.join!(@group)
        redirect_to group_path(@group)
      else
        render :new
